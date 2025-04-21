@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculadora de CO₂ - ReNova Code</title>
+  <link rel="icon" type="image/png" href="imagens/succulent.png">
+
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      background-color: #c0e5c8;
+    }
+
+    .navbar {
+      background-color: rgba(37, 77, 50, 0.95);
+    }
+
+    .navbar-brand, .nav-link {
+      color: #c0e5c8 !important;
+    }
+
+    .navbar-toggler {
+      border-color: #c0e5c8;
+    }
+
+    .form-section {
+      padding: 80px 0;
+      min-height: 100vh;
+      background-color: #c0e5c8;
+    }
+
+    .form-section h1 {
+      color: #254d32;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .form-control {
+      border-radius: 10px;
+      border: 2px solid #254d32;
+    }
+
+    .btn-custom {
+      background-color: #3a7d44;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 50px;
+      padding: 0.75rem 1.5rem;
+    }
+
+    .btn-custom:hover {
+      background-color: #254d32;
+    }
+
+    footer {
+      background-color: #011b0b;
+      color: #c0e5c8;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">ReNova Code</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html#about">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="calculadora.html">Calculadora</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#login">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Formulário da Calculadora -->
+  <section class="form-section d-flex align-items-center">
+    <div class="container">
+      <h1 class="text-center">Calculadora de Emissões de CO₂</h1>
+      <form>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+
+            <div class="mb-3">
+              <label for="carro" class="form-label">Quilômetros rodados por semana:</label>
+              <input type="number" class="form-control" id="carro" placeholder="Ex: 100">
+            </div>
+
+            <div class="mb-3">
+              <label for="energia" class="form-label">Consumo mensal de energia (kWh):</label>
+              <input type="number" class="form-control" id="energia" placeholder="Ex: 250">
+            </div>
+
+            <div class="mb-3">
+              <label for="voos" class="form-label">Número de voos por ano:</label>
+              <input type="number" class="form-control" id="voos" placeholder="Ex: 2">
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-custom mt-3">Calcular</button>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      ReNova Code © 2025
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("calculadora-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const energia = parseFloat(document.getElementById("energia").value);
+      const transporte = parseFloat(document.getElementById("transporte").value);
+      const alimentacao = parseFloat(document.getElementById("alimentacao").value);
+
+      const emissaoEnergia = energia * 0.5;
+      const emissaoTransporte = transporte * 0.2;
+      const emissaoAlimentacao = alimentacao * 5;
+
+      const totalEmissao = emissaoEnergia + emissaoTransporte + emissaoAlimentacao;
+
+      document.getElementById("resultado").innerText = 
+        `Sua emissão de CO₂ estimada é: ${totalEmissao.toFixed(2)} kg de CO₂ por mês.`;
+    });
+  </script>
+</body>
+</html>
