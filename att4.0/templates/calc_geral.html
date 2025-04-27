@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculadora - ReNova Code</title>
+  <link rel="icon" type="image/png" href="../static/images/succulent.png">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link href="../static/style.css" rel="stylesheet" />
+  
+  
+</head>
+
+<style>
+    body {
+      background: url('../static/images/andreaalva_-lifeofpix-andreaalva-310134.jpg') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+  
+    .navbar {
+      background-color: rgba(37, 77, 50, 0.95);
+    }
+  
+    .form-background {
+      background-color: rgba(255, 255, 255, 0.8); /* branco meio transparente */
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      margin-top: 100px; /* distância da navbar */
+      margin-bottom: 50px; /* distância antes do footer */
+    }
+  
+  </style>  
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">ReNova Code</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html#about">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="calculadora_geral.html">Calculadora</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#login">Relatório</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Formulário da Calculadora Geral -->
+  <section class="form-section d-flex align-items-center" style="min-height: 100vh;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+          <h1 class="text-center mb-4">Calculadora Geral de Emissões de CO₂</h1>
+          <form id="form-geral" action="https://67d0b77c825945773eb1bb5e.mockapi.io/calculadora_geral" method="post">
+            
+            <div class="mb-3">
+                <label for="email" class="form-label">Digite o seu e-mail para te enviarmos o resultado:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Digite o seu e-mail" required>
+            </div>
+
+            <br>
+            <h5>Questionário</h5>
+            <div class="mb-3">
+                <label for="q1" class="form-label">Quantos quilômetros você percorre, em média, por semana utilizando transporte público (ônibus, metrô, trem)?</label>
+                <input type="number" class="form-control" id="q1" name="q1" placeholder="Km por semana" min="0" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="q2" class="form-label">Quantos quilômetros você percorre, em média, por semana utilizando seu carro?</label>
+                <input type="number" class="form-control" id="q2" name="q2" placeholder="Km por semana" min="0" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="q3" class="form-label">Se você utiliza carro, qual é o consumo médio de combustível (em litros por 100 km) do seu veículo?</label>
+                <input type="number" class="form-control" id="q3" name="q3" placeholder="Litros por 100 km" min="0" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="q4" class="form-label">Você possui ou utiliza um veículo elétrico ou híbrido?</label><br>
+                <input type="radio" id="q4" name="q4" value="0" required> Sim<br>
+                <input type="radio" id="q4" name="q4" value="4" required> Não<br>
+            </div>
+            
+            <div class="mb-3">
+                <label for="q5" class="form-label">Seu veículo utiliza combustível fóssil (gasolina, diesel, etc.)?</label><br>
+                <input type="radio" id="q5" name="q5" value="4" required> Sim<br>
+                <input type="radio" id="q5" name="q5" value="0" required> Não<br>
+                <input type="radio" id="q5" name="q5" value="0" required> Não tenho veículo<br>
+            </div>
+            
+            <div class="mb-3">
+                <label for="q6" class="form-label">Qual é o consumo médio mensal de energia elétrica de sua residência (em kWh)?</label>
+                <input type="number" class="form-control" id="q6" name="q6" placeholder="kWh por mês" min="0" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="q7" class="form-label">Qual é a principal fonte de energia que você usa em sua residência?</label><br>
+                <input type="radio" id="q7" name="q7" value="4" required> Energia elétrica<br>
+                <input type="radio" id="q7" name="q7" value="2" required> Gás<br>
+                <input type="radio" id="q7" name="q7" value="0" required> Solar<br>
+            </div>
+            
+            <div class="mb-3">
+                <label for="q8" class="form-label">Você possui algum dispositivo de economia de energia, como aquecedores solares ou sistemas de energia renovável?</label><br>
+                <input type="radio" id="q8" name="q8" value="0" required> Sim<br>
+                <input type="radio" id="q8" name="q8" value="4" required> Não<br>
+            </div>
+            
+            <div class="mb-3">
+                <label for="q9" class="form-label">Quantos quilos de carne vermelha (boi, porco, cordeiro) você consome por mês?</label>
+                <input type="number" class="form-control" id="q9" name="q9" placeholder="Kg por mês" min="0" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="q10" class="form-label">Quantos quilos de lixo você gera, em média, por semana?</label>
+                <input type="number" class="form-control" id="q10" name="q10" placeholder="Kg por semana" min="0" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="q11" class="form-label">Quantos quilos de materiais recicláveis (papel, plástico, vidro, metal) você separa e destina corretamente por semana?</label>
+                <input type="number" class="form-control" id="q11" name="q11" placeholder="Kg por semana" min="0" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="q12" class="form-label">Você costuma reutilizar embalagens plásticas, vidros ou outros materiais antes de descartá-los?</label><br>
+                <input type="radio" id="q12" name="q12" value="0" required> Sempre<br>
+                <input type="radio" id="q12" name="q12" value="1" required> Às vezes<br>
+                <input type="radio" id="q12" name="q12" value="3" required> Raramente<br>
+                <input type="radio" id="q12" name="q12" value="4" required> Nunca<br>
+            </div>
+            
+            <div class="mb-3">
+                <label for="q13" class="form-label">Você separa e destina corretamente resíduos como pilhas, baterias e eletrônicos?</label><br>
+                <input type="radio" id="q13" name="q13" value="0" required> Sempre<br>
+                <input type="radio" id="q13" name="q13" value="1" required> Às vezes<br>
+                <input type="radio" id="q13" name="q13" value="3" required> Raramente<br>
+                <input type="radio" id="q13" name="q13" value="4" required> Nunca<br>
+            </div>
+            
+            <div class="mb-3">
+                <label for="q14" class="form-label">Com que frequência você consome alimentos de origem vegetal (vegetais, legumes, grãos)?</label><br>
+                <input type="radio" id="q14" name="q14" value="0" required> Todos os dias<br>
+                <input type="radio" id="q14" name="q14" value="1" required> 4-5 vezes por semana<br>
+                <input type="radio" id="q14" name="q14" value="3" required> 2-3 vezes por semana<br>
+                <input type="radio" id="q14" name="q14" value="4" required> Raramente ou nunca<br>
+            </div>
+            
+            <div class="mb-3">
+                <label for="q15" class="form-label">Você separa os resíduos recicláveis (plástico, vidro, papel) do lixo comum?</label><br>
+                <input type="radio" id="q15" name="q15" value="0" required> Sempre<br>
+                <input type="radio" id="q15" name="q15" value="1" required> Às vezes<br>
+                <input type="radio" id="q15" name="q15" value="3" required> Raramente<br>
+                <input type="radio" id="q15" name="q15" value="4" required> Nunca<br>
+            </div>
+            
+            
+            <div class="text-center">
+              <button type="submit" class="btn btn-cta mt-4">Calcular</button>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      ReNova Code © 2025
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("form-geral").addEventListener("submit", function(event) {
+      event.preventDefault();
+  
+      const email = document.getElementById("email").value;
+      const uuid = crypto.randomUUID().slice(0, 8); // Pega os primeiros 8 caracteres
+
+      // Coletando as respostas do formulário
+      let resposta = {
+        uuid: uuid,
+        email: email,
+        q1: parseFloat(document.getElementById('q1').value) || 0,
+        q2: parseFloat(document.getElementById('q2').value) || 0,
+        q3: parseFloat(document.getElementById('q3').value) || 0,
+        q4: parseInt(document.querySelector('input[name="q4"]:checked')?.value),
+        q5: parseInt(document.querySelector('input[name="q5"]:checked')?.value),
+        q6: parseFloat(document.getElementById('q6').value) || 0,
+        q7: parseInt(document.querySelector('input[name="q7"]:checked')?.value),
+        q8: parseInt(document.querySelector('input[name="q8"]:checked')?.value),
+        q9: parseFloat(document.getElementById('q9').value) || 0,
+        q10: parseFloat(document.getElementById('q10').value) || 0,
+        q11: parseFloat(document.getElementById('q11').value) || 0,
+        q12: parseInt(document.querySelector('input[name="q12"]:checked')?.value),
+        q13: parseInt(document.querySelector('input[name="q13"]:checked')?.value),
+        q14: parseInt(document.querySelector('input[name="q14"]:checked')?.value),
+        q15: parseInt(document.querySelector('input[name="q15"]:checked')?.value)
+      };
+  
+      // Emissões por categoria (aproximadas)
+      const transporte = (resposta.q1 * 0.3 + resposta.q2 * 0.5 + resposta.q3 * 0.2 + resposta.q4 * 10 + resposta.q5 * 20);
+      const energia = (resposta.q6 * 0.6 + resposta.q7 * 1.5 + resposta.q8 * 3);
+      const alimentacao = (resposta.q9 * 10 + resposta.q14 * 0.5);
+      const residuos = (resposta.q10 * 0.2 + resposta.q11 * 0.1 + resposta.q12 * 0.3 + resposta.q13 * 0.5 + resposta.q15 * 0.4);
+      
+      // Enviar os dados para a API como você já faz
+      fetch('https://67d0b77c825945773eb1bb5e.mockapi.io/calculadora_geral', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(resposta)
+      })
+      .then(
+        fetch('https://67d0b77c825945773eb1bb5e.mockapi.io/categorias', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          uuid: uuid,
+          email: email,
+          transporte: transporte,
+          energia: energia,
+          alimentacao: alimentacao,
+          residuos: residuos
+        })
+      }))
+      .then(response => response.json())
+      .then(data => {
+        console.log('Sucesso:', data);
+        // alert("Dados enviados com sucesso");
+  
+        // Redireciona para a página com o gráfico, passando os dados de emissão como parâmetros
+        let url = `grafico.html?transporte=${transporte}&energia=${energia}&alimentacao=${alimentacao}&residuos=${residuos}`;
+        window.location.href = url;
+      })
+      .catch((error) => {
+        console.error('Erro:', error);
+        alert("Erro no envio dos dados!");
+      });
+    });
+
+    
+      
+  </script>
+  
+  
