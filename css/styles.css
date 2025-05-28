@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  background-color: #F5D6C5;
+  /* Bege claro */
+  color: #000;
+  /* Texto preto */
+}
+
+/* Navbar */
+.navbar {
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+
+.navbar.scrolled {
+  background-color: #5e151af3;
+}
+
+.navbar-brand,
+.nav-link {
+  color: #F5EEDC !important;
+}
+
+.navbar-toggler {
+  border-color: #8A2A31;
+}
+
+/* Hero Section */
+header.hero-section {
+  background: url("../assets/img/img1.jpeg") center center/ cover no-repeat;
+  height: 100vh;
+  color: #F5EEDC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.btn-cta {
+  transition: background-color 0.3s;
+  background-color: #F5EEDC;
+  color: #8A2A31;
+  border: 2px solid #571a1e;
+  border-radius: 15px;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+}
+
+.btn-cta:hover {
+  background-color: #8A2A31;
+  color: #F5EEDC;
+}
+
+.a {
+  transition: background-color 0.3s;
+  background-color: #F5EEDC;
+  color: #8A2A31;
+  border: 2px solid #571a1e;
+  border-radius: 15px;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+}
+
+.a:hover {
+  background-color: #8A2A31;
+  /* Azul escuro */
+  color: #F5EEDC;
+}
+
+
+/* About Section */
+section#sobre {
+  background-color: #F5D6C5;
+  padding-top: 80px;
+  padding-bottom: 60px;
+  text-align: justify;
+}
+
+section#sobre h2 {
+  color: #051d2c;
+}
+
+section#sobre p {
+  color: #000;
+}
+
+section#dados {
+  background-color: #F5D6C5;
+  padding-top: 80px;
+  padding-bottom: 60px;
+  text-align: justify;
+}
+
+section#dados h2 {
+  color: #051d2c;
+}
+
+section#dados p {
+  color: #000;
+}
+
+
+
+/* Footer */
+footer {
+  background-color: #5e151a;
+  color: #F5EEDC;
+  padding: 1rem 0;
+}
+
+/* Formulários */
+.form-section {
+  background-color: #F5EEDC;
+}
+
+.form-control {
+  border-color: #5e151af3;
+}
+
+.form-section h1 {
+  color: #000;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.login-hero {
+  background-image: url('../assets/img/img1.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.login-box {
+  position: relative;
+  z-index: 2;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-box h2 {
+  margin-bottom: 25px;
+}
+
+/* .btn-custom {
+  background-color: #27548A;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+}
+
+.btn-custom:hover {
+  background-color: #183B4E;
+  color: #F5EEDC;
+} */
+
+header.fundo {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  background: url("../assets/img/roupas-elegantes-exibidas-numa-boutique.jpg") center top / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+
+header.fundo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+header .overlay-text {
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  width: 100%;
+  max-width: 280px;
+}
+
+.card-img-top {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 250px;
+}
+
+@media (max-width: 576px) {
+  header.fundo {
+    height: 40vh;
+  }
+
+  header .overlay-text h1 {
+    font-size: 1.5rem;
+  }
+
+  header .overlay-text p {
+    font-size: 1rem;
+  }
+}
