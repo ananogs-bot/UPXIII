@@ -1,6 +1,25 @@
 # 🧥 ReStyle — Plataforma de Aluguel de Roupas
 
-O **ReStyle** é uma plataforma web criada com o objetivo de incentivar o consumo consciente por meio do **aluguel de roupas**, oferecendo uma alternativa sustentável à compra e descarte frequente de vestuário. Com uma interface amigável e intuitiva, o sistema permite que usuários visualizem o catálogo de peças disponíveis, acessem os detalhes de cada item e realizem aluguéis de forma prática.
+O **ReStyle** é uma plataforma web desenvolvida com o objetivo de incentivar o consumo consciente por meio do **aluguel de roupas**, oferecendo uma alternativa sustentável à produção e descarte excessivos no setor da moda. A proposta integra tecnologia e sustentabilidade, promovendo o reaproveitamento de peças e a redução do impacto ambiental.
+
+Este projeto foi desenvolvido dentro do tema do semestre: **Energias Renováveis**, e se alinha diretamente à proposta ao incentivar a redução da produção de novas roupas — um processo altamente demandante em energia elétrica e recursos naturais. Ao promover o aluguel de peças, o **ReStyle** contribui para um menor consumo energético na cadeia produtiva da moda, reforçando práticas sustentáveis e conscientes que colaboram para a preservação do meio ambiente.
+
+### 👥 Integrantes do Grupo
+
+- Ana Luiza Nogueira de Araujo  
+- Diogo Samuel Ribeiro dos Santos  
+- Isabela de Oliveira Jacob  
+- Giulia Camizão Rokicki  
+- Júlia Lamare de Oliveira  
+- Júlia Moraes Martins  
+
+**Curso:** Análise e Desenvolvimento de Sistemas  
+**Semestre:** 3º Semestre  
+**Instituição:** Facens  
+**Disciplina:** Usina de Projetos Experimentais III  
+**Orientador:** Gilson Antônio da Silva  
+
+---
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -12,13 +31,15 @@ O **ReStyle** é uma plataforma web criada com o objetivo de incentivar o consum
 - **Figma** — prototipação e design da interface do usuário.
 - **Trello** — organização das tarefas e acompanhamento do progresso do projeto.
 
+---
+
 ## 🔗 Acesse nossos materiais
 
-Disponibilizamos todos os recursos e entregáveis do projeto em um só lugar, através do Linktree:
+Reunimos todos os recursos e entregáveis do projeto em um único local, através do nosso Linktree:
 
 ➡️ https://linktr.ee/UPXIII.ReStyle
 
-Conteúdo disponível:
+**Conteúdo disponível:**
 - 🌐 Landing Page (site)
 - ✅ Quadro no Trello
 - 🎨 Telas no Figma (prototipação)
@@ -28,4 +49,4 @@ Conteúdo disponível:
 
 ---
 
-> Projeto desenvolvido como parte de trabalho acadêmico, com foco em sustentabilidade e inovação no consumo de moda.
+> ReStyle: moda consciente, digital e sustentável 🌱
