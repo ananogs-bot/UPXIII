@@ -1,159 +1,181 @@
-let valorVestuarioGlobal = 0; // variável global para guardar o valor do vestuário
+const produtos = [
+  {
+    cod_vestuario: '1',
+    nome_vestuario: 'Vestido Casual',
+    url_vestuario: 'assets/img/mulher-falando-ao-telefone-ao-ar-livre.jpg',
+    descricao_vestuario:
+      'Vestido casual em tom vinho, confeccionado em tecido leve e confortável, ideal para o dia a dia ou encontros informais. Possui corte fluido que valoriza a silhueta, com detalhes sutis como decote em V e mangas curtas, perfeito para quem busca estilo com conforto. Fácil de combinar e usar em diversas ocasiões, trazendo elegância descomplicada ao seu guarda-roupa.',
+    valor_vestuario: 120,
+    cor_vestuario: 'vinho',
+    tamanho_vestuario: 'G',
+  },
+  {
+    cod_vestuario: '2',
+    nome_vestuario: 'Vestido Formal',
+    url_vestuario: 'assets/img/retrato-da-moda-da-jovem-mulher-elegante.jpg',
+    descricao_vestuario:
+      'Vestido formal em cetim verde esmeralda, com acabamento suave e brilho sofisticado. Design elegante com corte ajustado ao corpo, decote delicado e comprimento midi, ideal para eventos especiais e ocasiões sofisticadas. Um toque de luxo e charme para quem quer impressionar com estilo e elegância.',
+    valor_vestuario: 150,
+    cor_vestuario: 'verde esmeralda',
+    tamanho_vestuario: 'P',
+  },
+  {
+    cod_vestuario: '3',
+    nome_vestuario: 'Vestido Casual',
+    url_vestuario: 'assets/img/mulher-sorridente-de-vista-lateral-posando-com-bolsa.jpg',
+    descricao_vestuario:
+      'Vestido branco leve e fluido, perfeito para um visual praiano e descontraído. Feito com tecido fresco e respirável, ideal para dias ensolarados à beira-mar. Com detalhes delicados como alças finas e acabamento em renda, traz conforto e estilo casual para passeios e momentos relaxantes.',
+    valor_vestuario: 100,
+    cor_vestuario: 'branco',
+    tamanho_vestuario: 'PP',
+  },
+  {
+    cod_vestuario: '4',
+    nome_vestuario: 'Macacão Formal',
+    url_vestuario:
+      'assets/img/mulher-bonita-vestindo-um-terno-preto-coque-de-cabelo-maquiagem-sorrindo-posando-em-pe-perto-dos-portoes-ao-ar-livre-mao-na-cintura-olhando-para-baixo-elegante-moda.jpg',
+    descricao_vestuario:
+      'Macacão formal elegante, ideal para ocasiões especiais. Confeccionado em tecido de alta qualidade com corte ajustado que valoriza a silhueta. Perfeito para um visual sofisticado e moderno.',
+    valor_vestuario: 100,
+    cor_vestuario: 'preto',
+    tamanho_vestuario: 'M',
+  },
+];
 
-// Função para obter o valor do parâmetro 'uuid' (código do vestuário)
-function getUUID() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('uuid');
-}
+const formatarPreco = (valor) =>
+  valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-// Função para formatar o preço
-function formatarPreco(valor) {
-    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-}
+const getUUID = () => new URLSearchParams(window.location.search).get('uuid');
 
-// Função para atualizar o valor total dinamicamente
+let valorVestuarioGlobal = 0;
+
 function atualizarValorTotal() {
-    const dias = parseInt(document.getElementById('dias').value) || 0;
-    const total = valorVestuarioGlobal * dias;
-    document.getElementById('valor-total').textContent = `Total: ${formatarPreco(total)}`;
-}
+  const diasInput = document.getElementById('dias');
+  const totalValor = document.getElementById('valor-total');
 
-// Pegar os produtos do banco de dados
-async function carregarProduto() {
-    const uuid = getUUID();
-    if (!uuid) {
-        mostrarErro("UUID não fornecido na URL.");
-        return;
-    }
+  const dias = parseInt(diasInput.value, 10) || 0;
+  const total = valorVestuarioGlobal * dias;
 
-    try {
-        const resposta = await fetch(`http://localhost:3000/api/produtos/${uuid}`);
-        if (!resposta.ok) {
-            if (resposta.status === 404) {
-                mostrarErro("Produto não encontrado.");
-            } else {
-                mostrarErro("Erro ao buscar produto.");
-            }
-            return;
-        }
-
-        const produto = await resposta.json();
-        mostrarProduto(produto);
-    } catch (error) {
-        mostrarErro("Erro ao acessar o servidor.");
-        console.error(error);
-    }
-}
-
-// Mostrar os produtos com base no banco de dados
-function mostrarProduto(produto) {
-    valorVestuarioGlobal = produto.valor_vestuario;
-
-    const container = document.getElementById('produto-detalhes');
-    container.innerHTML = `
-        <div class="col-md-6">
-            <img src="${produto.url_vestuario}" alt="${produto.nome_vestuario}" class="img-fluid rounded" />
-        </div>
-        <div class="col-md-6">
-            <h2>${produto.nome_vestuario}</h2>
-            <p>${produto.descricao_vestuario}</p>
-            <p><strong>Cor:</strong> ${produto.cor_vestuario}</p>
-            <p><strong>Tamanho:</strong> ${produto.tamanho_vestuario}</p>
-            <p class="text-success fw-bold fs-4 text-dark">${formatarPreco(produto.valor_vestuario)}</p>
-
-            <br>
-            <label for="data-inicial" class="form-label">Data de Início:</label>
-            <input type="date" id="data-inicial" class="form-control" required />
-
-            <label for="dias" class="form-label mt-3">Quantos dias?</label>
-            <input type="number" id="dias" class="form-control" min="1" required />
-
-            <label for="pagamento" class="form-label mt-3">Método de Pagamento:</label>
-            <select id="pagamento" class="form-control">
-                <option value="1">Débito</option>
-                <option value="2">Crédito</option>
-                <option value="3">Pix</option>
-            </select>
-
-            <p id="valor-total" class="mt-3 fw-bold text-dark">Total: R$ 0,00</p>
-
-            <button class="btn btn-cta mt-3 w-100" onclick="alugar()">Confirmar Aluguel</button>
-            <a href="catalogo.html" class="btn btn-cta mt-3 w-100">Voltar ao catálogo</a>
-        </div>
-    `;
-
-    // Bloquear datas anteriores
-    const inputData = document.getElementById('data-inicial');
-    const hoje = new Date();
-    const amanha = new Date(hoje);
-    amanha.setDate(hoje.getDate() + 1);
-    inputData.min = amanha.toISOString().split('T')[0];
-
-    // Atualiza valor ao mudar dias
-    document.getElementById('dias').addEventListener('input', atualizarValorTotal);
-
-    document.getElementById('erro').classList.add('d-none');
-    console.log(localStorage.getItem('cod_usuario'));
+  totalValor.textContent = `Total: ${formatarPreco(total)}`;
 }
 
 function mostrarErro(mensagem) {
-    const erroDiv = document.getElementById('erro');
-    erroDiv.textContent = mensagem;
-    erroDiv.classList.remove('d-none');
-    document.getElementById('produto-detalhes').innerHTML = '';
+  const erroDiv = document.getElementById('erro');
+  erroDiv.textContent = mensagem;
+  erroDiv.classList.remove('d-none');
+
+  const produtoContainer = document.getElementById('produto-detalhes');
+  produtoContainer.innerHTML = '';
 }
 
-// Enviar os dados para o servidor
-async function alugar() {
-    const cod_usuario = localStorage.getItem('cod_usuario');
-    const cod_vestuario = getUUID();
-    const dataInicial = document.getElementById('data-inicial').value;
-    const dias = parseInt(document.getElementById('dias').value);
-    const cod_pagamento = parseInt(document.getElementById('pagamento').value);
+function configurarDataMinima() {
+  const inputData = document.getElementById('data-inicial');
+  const hoje = new Date();
+  hoje.setDate(hoje.getDate() + 1);
+  inputData.min = hoje.toISOString().split('T')[0];
+  inputData.value = '';
+}
 
-    if (!dataInicial || !dias || !cod_usuario) {
-        alert("Preencha todos os campos e certifique-se de estar logado!");
-        return;
-    }
+function mostrarProduto(produto) {
+  valorVestuarioGlobal = produto.valor_vestuario;
 
-    const dataInicio = new Date(dataInicial);
-    const dataFim = new Date(dataInicio);
-    dataFim.setDate(dataInicio.getDate() + dias - 1);
+  const container = document.getElementById('produto-detalhes');
+  container.innerHTML = `
+  <div class="row align-items-start produto-layout">
+    <div class="imagem-container col-12 col-xl-6 mb-3">
+      <img src="${produto.url_vestuario}" alt="${produto.nome_vestuario}" class="img-fluid rounded w-100" />
+    </div>
+    <div class="info-container col-12 col-xl-6">
+        <br>
+      <h2>${produto.nome_vestuario}</h2>
+      <p>${produto.descricao_vestuario}</p>
+      <p><strong>Cor:</strong> ${produto.cor_vestuario}</p>
+      <p><strong>Tamanho:</strong> ${produto.tamanho_vestuario}</p>
+      <p class="text-success fw-bold fs-4 text-dark">${formatarPreco(produto.valor_vestuario)}</p>
 
-    const data_inicio = dataInicio.toISOString().split('T')[0];
-    const data_fim = dataFim.toISOString().split('T')[0];
+      <div class="inputs-container">
+        <label for="data-inicial" class="form-label">Data de Início:</label>
+        <input type="date" id="data-inicial" class="form-control" required />
 
-    const total = valorVestuarioGlobal * dias;
+        <label for="dias" class="form-label mt-3">Quantos dias?</label>
+        <input type="number" id="dias" class="form-control" min="1" required />
 
-    const aluguel = {
-        cod_usuario,
-        cod_vestuario,
-        data_inicio,
-        data_fim,
-        cod_pagamento
-    };
+        <label for="pagamento" class="form-label mt-3">Método de Pagamento:</label>
+        <select id="pagamento" class="form-control">
+          <option value="1">Débito</option>
+          <option value="2">Crédito</option>
+          <option value="3">Pix</option>
+        </select>
 
-    const alugueis = [aluguel];
+        <p id="valor-total" class="mt-3 fw-bold text-dark">Total: ${formatarPreco(0)}</p>
 
-    try {
-        const resposta = await fetch('http://localhost:3000/api/alugar', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ alugueis, total })
-        });
+        <button id="btn-alugar" class="btn btn-cta mt-3 w-100">Confirmar Aluguel</button>
+        <a href="catalogo.html" class="btn btn-cta mt-3 w-100">Voltar ao catálogo</a>
+      </div>
+    </div>
+  </div>
+`;
 
-        if (resposta.ok) {
-            alert(`Aluguel realizado com sucesso! Total a pagar: ${formatarPreco(total)}`);
-        } else if (resposta.status === 409) {
-            const data = await resposta.json();
-            alert(data.erro || 'Este período já está reservado para essa peça.');
-        } else {
-            alert("Erro ao registrar aluguel");
-        }
-    } catch (erro) {
-        console.error(erro);
-        alert("Erro na comunicação com o servidor");
-    }
+
+  configurarDataMinima();
+
+  document.getElementById('dias').addEventListener('input', atualizarValorTotal);
+
+  document.getElementById('btn-alugar').addEventListener('click', alugar);
+
+  document.getElementById('erro').classList.add('d-none');
+}
+
+
+function carregarProduto() {
+  const uuid = getUUID();
+
+  if (!uuid) {
+    mostrarErro('UUID não fornecido na URL.');
+    return;
+  }
+
+  const produto = produtos.find((p) => p.cod_vestuario === uuid);
+
+  if (!produto) {
+    mostrarErro('Produto não encontrado.');
+    return;
+  }
+
+  mostrarProduto(produto);
+}
+
+function alugar() {
+  const cod_usuario = localStorage.getItem('cod_usuario');
+  const cod_vestuario = getUUID();
+  const dataInicial = document.getElementById('data-inicial').value;
+  const dias = parseInt(document.getElementById('dias').value, 10);
+  const cod_pagamento = document.getElementById('pagamento').value;
+
+  if (!cod_usuario) {
+    alert('Você precisa estar logado para alugar.');
+    return;
+  }
+
+  if (!dataInicial) {
+    alert('Por favor, selecione a data de início.');
+    return;
+  }
+
+  if (!dias || dias < 1) {
+    alert('Informe um número válido de dias.');
+    return;
+  }
+
+  const total = valorVestuarioGlobal * dias;
+
+  alert(
+    `Aluguel confirmado!\n\nProduto: ${cod_vestuario}\nDias: ${dias}\nMétodo de Pagamento: ${cod_pagamento}\nTotal: ${formatarPreco(
+      total
+    )}`
+  );
+
+  // Aqui você pode enviar os dados para o backend via fetch, por exemplo
 }
 
 window.addEventListener('DOMContentLoaded', carregarProduto);
