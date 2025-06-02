@@ -8,7 +8,7 @@ Este projeto foi desenvolvido dentro do tema do semestre: **Energias Renováveis
 **Semestre:** 3º Semestre  
 **Instituição:** Facens  
 **Disciplina:** Usina de Projetos Experimentais III  
-**Orientador:** Gilson Antônio da Silva  
+**Orientador:** Gilson Antonio da Silva  
 
 ### 👥 Integrantes do Grupo
 
