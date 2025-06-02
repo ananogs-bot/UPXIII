@@ -4,20 +4,19 @@ O **ReStyle** é uma plataforma web desenvolvida com o objetivo de incentivar o 
 
 Este projeto foi desenvolvido dentro do tema do semestre: **Energias Renováveis**, e se alinha diretamente à proposta ao incentivar a redução da produção de novas roupas — um processo altamente demandante em energia elétrica e recursos naturais. Ao promover o aluguel de peças, o **ReStyle** contribui para um menor consumo energético na cadeia produtiva da moda, reforçando práticas sustentáveis e conscientes que colaboram para a preservação do meio ambiente.
 
+**Curso:** Análise e Desenvolvimento de Sistemas  
+**Semestre:** 3º Semestre  
+**Instituição:** Facens  
+**Disciplina:** Usina de Projetos Experimentais III  
+**Orientador:** Gilson Antônio da Silva  
+
 ### 👥 Integrantes do Grupo
 
 - Ana Luiza Nogueira de Araujo  
 - Diogo Samuel Ribeiro dos Santos  
 - Isabela de Oliveira Jacob  
 - Giulia Camizão Rokicki  
-- Júlia Lamare de Oliveira  
 - Júlia Moraes Martins  
-
-**Curso:** Análise e Desenvolvimento de Sistemas  
-**Semestre:** 3º Semestre  
-**Instituição:** Facens  
-**Disciplina:** Usina de Projetos Experimentais III  
-**Orientador:** Gilson Antônio da Silva  
 
 ---
 
@@ -49,4 +48,4 @@ Reunimos todos os recursos e entregáveis do projeto em um único local, atravé
 
 ---
 
-> ReStyle: moda consciente, digital e sustentável 🌱
+> ReStyle: vista-se com propósito🌱
